@@ -1,0 +1,25 @@
+{
+  "name": "express-redirect-flash",
+  "version": "0.1.0",
+  "description": "This middlware meke it possible to redirect requests with flash attributes.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u4da3/express-redirect-flash.git"
+  },
+  "keywords": [
+    "express",
+    "redirect",
+    "flash",
+    "middleware"
+  ],
+  "author": "u4da3",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/u4da3/express-redirect-flash/issues"
+  },
+  "homepage": "https://github.com/u4da3/express-redirect-flash#readme"
+}
