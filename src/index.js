@@ -13,7 +13,7 @@ module.exports = (app) => {
         } else if('string' === typeof argv) {
           url = argv
         } else if(argv && 'object' == typeof argv) {
-          Object.assign(data, argv);
+          Object.assign(data, argv)
         }
       }
       // Set data into the session
@@ -25,7 +25,9 @@ module.exports = (app) => {
   // redirect-flash-middleware
   return (req, res, next) => {
     // Get data from the session
-    Object.assign(res.locals, req.session.redirectFlash)
+    if(req.session) {
+      Object.assign(res.locals, req.session.redirectFlash)
+    }
     // Clear data in the session
     req.session.redirectFlash = {}
     // Add the method `redirectFlash([status], url, data)`
