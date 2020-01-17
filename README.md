@@ -39,3 +39,7 @@ router.get('/show',  (req, res) => {
 })
 ```
 
+### PRG Pattern
+`express-redirect-flash` make it easer to implement applications with the PRG pattern (Post-Redirect-Get pattern) for security.
+
+![sequence dialog](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/u4da3/express-redirect-flash/develop/uml/seq.puml)
