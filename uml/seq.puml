@@ -1,0 +1,22 @@
+@startuml sequence
+User -> Browser : Click Update
+activate Browser
+Browser -> Server : POST
+activate Server
+Server -> Database : UPDATE
+activate Database
+Server <-- Database : Done
+deactivate Database
+Browser <-- Server : Redirect
+deactivate Server
+Browser -> Server : GET
+activate Server
+Server -> Database : SELECT
+activate Database
+Server <-- Database : Records
+deactivate Database
+Browser <-- Server : HTML
+deactivate Server
+User <-- Browser : Show HTML
+deactivate Browser
+@enduml
