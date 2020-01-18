@@ -1,5 +1,5 @@
 {
-  "name": "express-redirect-flash",
+  "name": "@u4da3/express-redirect-flash",
   "version": "0.1.0",
   "description": "This middlware meke it possible to redirect requests with flash attributes.",
   "main": "src/index.js",
