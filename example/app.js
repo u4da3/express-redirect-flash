@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
-var redirectFlash = require('express-redirect-flash')
+var redirectFlash = require('@u4da3/express-redirect-flash')
 
 var indexRouter = require('./routes/index');
 var resourcesRouter = require('./routes/resources');
