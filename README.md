@@ -1,8 +1,12 @@
 # express-redirect-flash
 This middlware meke it possible to redirect requests with flash attributes.
 
-## Syntax
+## Install
+```sh
+npm i @u4da3/express-redirect-flash
+```
 
+## Syntax
 ```js
 res.redirectFlash([status,] url, data)
 ```
@@ -11,7 +15,7 @@ res.redirectFlash([status,] url, data)
 ### app.js
 ```js
 const session = require('express-session')
-const redirectFlash = require('express-redirect-flash')
+const redirectFlash = require('@u4da3/express-redirect-flash')
 
 app.use(session({
   // some options
@@ -42,4 +46,4 @@ router.get('/show',  (req, res) => {
 ### PRG Pattern
 `express-redirect-flash` make it easer to implement applications with the PRG pattern (Post-Redirect-Get pattern) for security.
 
-![sequence dialog](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/u4da3/express-redirect-flash/develop/uml/seq.puml)
+![sequence dialog](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/u4da3/express-redirect-flash/master/uml/seq.puml)
