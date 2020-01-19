@@ -1,4 +1,6 @@
 # express-redirect-flash
+[![Build Status](https://travis-ci.org/u4da3/express-redirect-flash.svg?branch=master)](https://travis-ci.org/u4da3/express-redirect-flash)
+
 This middlware meke it possible to redirect requests with flash attributes.
 
 ## Install
