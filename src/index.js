@@ -17,19 +17,21 @@ module.exports = (app) => {
         }
       }
       // Set data into the session
-      req.session.redirectFlash = data
+      if(req.session) {
+        req.session.redirectFlash = data
+      }
       // Redirect
       res.redirect(status, url)
     }
   }
   // redirect-flash-middleware
   return (req, res, next) => {
-    // Get data from the session
     if(req.session) {
+      // Get data from the session
       Object.assign(res.locals, req.session.redirectFlash)
+      // Clear data in the session
+      req.session.redirectFlash = {}
     }
-    // Clear data in the session
-    req.session.redirectFlash = {}
     // Add the method `redirectFlash([status], url, data)`
     res.redirectFlash = redirectFlashImpl(req, res)
     next()
