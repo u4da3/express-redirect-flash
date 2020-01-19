@@ -1,4 +1,4 @@
-const assert = require('assert')
+const assert = require('chai').assert
 const httpMocks = require('node-mocks-http');
 const redirectFlashMiddleware = require('../src/index')
 
@@ -25,7 +25,7 @@ describe('res.redirectFlash()', function() {
     res.redirectFlash(302, '/redirect', data);
 
     // assertion
-    assert(false, 'error: the function done() has not called');
+    assert.fail('error: the function done() has not called');
   });
 
   it('should pass the arguments `status` and `url` to res.redirect().', function(done) {
@@ -39,8 +39,8 @@ describe('res.redirectFlash()', function() {
     var res = httpMocks.createResponse({});
     res.redirect = function(status, url) {
       // assertion
-      assert(304 === status, 'error: the argmeint `status` has not passed to res.redirect()');
-      assert('/redirect' === url, 'error: the argmeint `status` has not passed to res.redirect()')
+      assert.equal(status, 304, 'error: the argmeint `status` has not passed to res.redirect()');
+      assert.equal(url, '/redirect', 'error: the argmeint `status` has not passed to res.redirect()')
       done()}
     // create the next()
     var next = function() {}
@@ -64,8 +64,8 @@ describe('res.redirectFlash()', function() {
     var res = httpMocks.createResponse({});
     res.redirect = function(status, url) {
       // assertion
-      assert(302 === status, 'error: the argmeint `status` has not passed to res.redirect()');
-      assert('/redirect' === url, 'error: the argmeint `status` has not passed to res.redirect()')
+      assert.equal(status, 302, 'error: the argmeint `status` has not passed to res.redirect()');
+      assert.equal(url, '/redirect', 'error: the argmeint `status` has not passed to res.redirect()')
       done()}
     // create the next()
     var next = function() {}
@@ -96,7 +96,7 @@ describe('res.redirectFlash()', function() {
     res.redirectFlash(302, '/redirect', data);
 
     // assertion
-    assert(false, 'error: the function done() has not called');
+    assert.fail('error: the function done() has not called');
   });
 
   it('should store the redirect attributes in the session when three arguments are given.', function(done) {
@@ -125,9 +125,9 @@ describe('res.redirectFlash()', function() {
     res.redirectFlash(304, '/redirect', data);
 
     // assertion
-    assert('value1' === req.session.redirectFlash.key1, 'error: the redirect attribute `key1` has not stored in the session.');
-    assert('value2_1' === req.session.redirectFlash.key2.key2_1, 'error: the redirect attribute `key2_1` has not stored in the session.');
-    assert('value2_2' === req.session.redirectFlash.key2.key2_2, 'error: the redirect attribute `key2_2` has not stored in the session.');
+    assert.equal(req.session.redirectFlash.key1, 'value1', 'error: the redirect attribute `key1` has not stored in the session.');
+    assert.equal(req.session.redirectFlash.key2.key2_1, 'value2_1', 'error: the redirect attribute `key2_1` has not stored in the session.');
+    assert.equal(req.session.redirectFlash.key2.key2_2, 'value2_2', 'error: the redirect attribute `key2_2` has not stored in the session.');
     done();
   });
 
@@ -158,9 +158,9 @@ describe('res.redirectFlash()', function() {
     res.redirectFlash('/redirect', data);
 
     // assertion
-    assert('value1' === req.session.redirectFlash.key1, 'error: the redirect attribute `key1` has not stored in the session.');
-    assert('value2_1' === req.session.redirectFlash.key2.key2_1, 'error: the redirect attribute `key2_1` has not stored in the session.');
-    assert('value2_2' === req.session.redirectFlash.key2.key2_2, 'error: the redirect attribute `key2_2` has not stored in the session.');
+    assert.equal(req.session.redirectFlash.key1, 'value1', 'error: the redirect attribute `key1` has not stored in the session.');
+    assert.equal(req.session.redirectFlash.key2.key2_1, 'value2_1', 'error: the redirect attribute `key2_1` has not stored in the session.');
+    assert.equal(req.session.redirectFlash.key2.key2_2, 'value2_2', 'error: the redirect attribute `key2_2` has not stored in the session.');
     done();
   });
 }); 

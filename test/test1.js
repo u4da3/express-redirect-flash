@@ -1,4 +1,4 @@
-const assert = require('assert')
+const assert = require('chai').assert
 const httpMocks = require('node-mocks-http');
 const redirectFlashMiddleware = require('../src/index')
 
@@ -29,11 +29,11 @@ describe('redirectFlashMiddleware', function() {
     redirectFlash(req, res, next);
 
     // assertion
-    assert(0 === Object.keys(req.session.redirectFlash).length, 'error: the redirect attributes has not cleard.');
-    assert('value3' === req.session.key3, 'error: the session data that is not a the redirect attribute has cleard.');
-    assert('value1' === res.locals.key1, 'error: the redirect attribute `key1` has not moved.');
-    assert('value2_1' === res.locals.key2.key2_1, 'error: the redirect attribute `key2_1` has not moved.');
-    assert('value2_2' === res.locals.key2.key2_2, 'error: the redirect attribute `key2_2` has not moved.');
+    assert.lengthOf(Object.keys(req.session.redirectFlash), 0, 'error: the redirect attributes has not cleard.');
+    assert.equal(req.session.key3, 'value3', 'error: the session data that is not a the redirect attribute has cleard.');
+    assert.equal(res.locals.key1, 'value1', 'error: the redirect attribute `key1` has not moved.');
+    assert.equal(res.locals.key2.key2_1, 'value2_1', 'error: the redirect attribute `key2_1` has not moved.');
+    assert.equal(res.locals.key2.key2_2, 'value2_2', 'error: the redirect attribute `key2_2` has not moved.');
     done();
   });
 
@@ -53,7 +53,7 @@ describe('redirectFlashMiddleware', function() {
     redirectFlash(req, res, next);
 
     // assertion
-    assert(typeof res.redirectFlash == 'function', 'error');
+    assert.typeOf(res.redirectFlash, 'function', 'error: the function redirectFlash has not attached');
     done();
   });
 
@@ -73,7 +73,7 @@ describe('redirectFlashMiddleware', function() {
     redirectFlash(req, res, next);
 
     // assertion
-    assert(false, 'error: the function done() has not called');
+    assert.fail('error: the function done() has not called');
   });
 
   it('should not throw an exception when the session is undefined.', function(done) {
@@ -90,6 +90,6 @@ describe('redirectFlashMiddleware', function() {
     redirectFlash(req, res, next);
 
     // assertion
-    assert(false, 'error: the function done() has not called');
+    assert.fail('error: the function done() has not called');
   });
 }); 
