@@ -4,7 +4,7 @@ const redirectFlashMiddleware = require('../src/index')
 
 describe('res.redirectFlash()', function() {
 
-  it('should call the function res.redirct()', function(done) {
+  it('should call the function res.redirct().', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -28,7 +28,7 @@ describe('res.redirectFlash()', function() {
     assert(false, 'error: the function done() has not called');
   });
 
-  it('should pass the arguments `status` and `url` to res.redirect()', function(done) {
+  it('should pass the arguments `status` and `url` to res.redirect().', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -53,7 +53,7 @@ describe('res.redirectFlash()', function() {
     res.redirectFlash(304, '/redirect', data);
   });
 
-  it('should pass the arguments `url` to res.redirect()', function(done) {
+  it('should pass the arguments `url` to res.redirect().', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -78,7 +78,7 @@ describe('res.redirectFlash()', function() {
     res.redirectFlash('/redirect', data);
   });
 
-  it('should not throw an exception when the session is undefined, ', function(done) {
+  it('should not throw an exception when the session is undefined.', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -99,7 +99,7 @@ describe('res.redirectFlash()', function() {
     assert(false, 'error: the function done() has not called');
   });
 
-  it('should store the redirect attributes in the session when three arguments are given', function(done) {
+  it('should store the redirect attributes in the session when three arguments are given.', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -132,7 +132,7 @@ describe('res.redirectFlash()', function() {
   });
 
 
-  it('should store the redirect attributes in the session when tow arguments are given', function(done) {
+  it('should store the redirect attributes in the session when two arguments are given.', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request

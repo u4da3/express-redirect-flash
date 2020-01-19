@@ -4,7 +4,7 @@ const redirectFlashMiddleware = require('../src/index')
 
 describe('redirectFlashMiddleware', function() {
 
-  it('should clear the flash attributes and move it into res.locals', function(done) {
+  it('should clear the flash attributes and move it into res.locals.', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -37,7 +37,7 @@ describe('redirectFlashMiddleware', function() {
     done();
   });
 
-  it('should attach res.redirectFlash as a function', function(done) {
+  it('should attach res.redirectFlash as a function.', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -57,7 +57,7 @@ describe('redirectFlashMiddleware', function() {
     done();
   });
 
-  it('should call the function next()', function(done) {
+  it('should call the function next().', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
@@ -76,7 +76,7 @@ describe('redirectFlashMiddleware', function() {
     assert(false, 'error: the function done() has not called');
   });
 
-  it('should not throw an exception when the session is undefined, ', function(done) {
+  it('should not throw an exception when the session is undefined.', function(done) {
     // create the middleware to be tested
     var redirectFlash = redirectFlashMiddleware()
     // create the request
