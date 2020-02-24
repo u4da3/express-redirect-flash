@@ -10,4 +10,4 @@ declare module 'express-serve-static-core' {
   }
 }
 
-export {redirectFlashMiddleware};
+export = redirectFlashMiddleware;

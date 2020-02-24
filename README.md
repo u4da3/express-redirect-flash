@@ -17,7 +17,7 @@ res.redirectFlash([status,] url, data)
 ### app.js
 ```js
 const session = require('express-session')
-const {redirectFlash} = require('@u4da3/express-redirect-flash')
+const redirectFlash = require('@u4da3/express-redirect-flash')
 
 app.use(session({
   // some options
