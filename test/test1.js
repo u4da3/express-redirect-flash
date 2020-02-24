@@ -1,6 +1,6 @@
 const assert = require('chai').assert
 const httpMocks = require('node-mocks-http');
-const redirectFlashMiddleware = require('../src/index')
+const {redirectFlashMiddleware} = require('../src/index')
 
 describe('redirectFlashMiddleware', function() {
 
