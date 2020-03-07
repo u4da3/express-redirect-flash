@@ -1,7 +1,8 @@
-import {redirectFlashMiddleware} from './index'
 import {Response, RequestHandler} from 'express-serve-static-core';
 
 declare function redirectFlashMiddleware(options?: object): RequestHandler;
+declare namespace redirectFlashMiddleware {}
+export = redirectFlashMiddleware;
 
 declare module 'express-serve-static-core' {
   interface Response {
@@ -9,5 +10,3 @@ declare module 'express-serve-static-core' {
     redirectFlash(status: number, url: string, data: any): void;
   }
 }
-
-export = redirectFlashMiddleware;
