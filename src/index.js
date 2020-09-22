@@ -1,4 +1,4 @@
-module.exports = (app) => {
+const redirectFlashMiddleware = (option) => {
   // Implement of the method `redirectFlash([status], url, data)`
   const redirectFlashImpl = (req, res) => {
     return (...args) => {
@@ -37,3 +37,4 @@ module.exports = (app) => {
     next()
   }
 }
+module.exports = redirectFlashMiddleware

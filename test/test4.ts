@@ -1,8 +1,10 @@
-const assert = require('chai').assert
-const httpMocks = require('node-mocks-http');
-const redirectFlashMiddleware = require('../src/index')
+import * as chai from 'chai';
+import * as httpMocks from 'node-mocks-http';
+import * as redirectFlashMiddleware from '../src/index';
 
-describe('res.redirectFlash()', function() {
+const assert = chai.assert;
+
+describe('res.redirectFlash() (TypeScript)', function() {
 
   it('should call the function res.redirct().', function(done) {
     // create the middleware to be tested
