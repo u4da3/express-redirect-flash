@@ -1,5 +1,11 @@
 @startuml sequence
-User -> Browser : Click Update
+participant User
+participant Browser
+participant Server
+participant Session
+participant Database
+
+User -> Browser : Actions
 activate Browser
 Browser -> Server : POST
 activate Server
@@ -7,10 +13,14 @@ Server -> Database : UPDATE
 activate Database
 Server <-- Database : Done
 deactivate Database
+Server ->> Session : save some\nattributes
+activate Session #f8bbd0
 Browser <-- Server : Redirect
 deactivate Server
 Browser -> Server : GET
 activate Server
+Server <<-- Session : laod the\nattributes
+deactivate Session
 Server -> Database : SELECT
 activate Database
 Server <-- Database : Records
